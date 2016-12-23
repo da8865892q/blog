@@ -1,0 +1,25 @@
+{% extends "main/base.html" %}
+{% load staticfiles %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'article/css/article.css' %}">
+{% endblock %}
+{% block heading %}
+{% if article %}
+修改文章
+{% else %}
+新增文章
+{% endif %}
+{% endblock %}
+{% block content %}
+{% if article %}
+  <form method="post" action="{% url 'article:articleUpdate' article.id %}">
+{% else %}
+  <form method="post" action="{% url 'article:articleCreate' %}">
+{% endif %}
+
+  {% csrf_token %}
+  {{ articleForm.as_p }}
+  <input type="submit" value="送出">
+  <a class="btn" href="{% url 'article:article' %}">放棄</a>
+</form>
+{% endblock %}

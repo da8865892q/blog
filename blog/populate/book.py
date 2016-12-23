@@ -1,5 +1,5 @@
 from populate import base
-from article.models import Book
+from book.models import Book
 import random
 import datetime
 

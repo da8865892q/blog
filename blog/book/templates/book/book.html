@@ -2,7 +2,7 @@
 {% load staticfiles %}
 <html>
 <head>
-<title>部落格</title>
+<title>書名</title>
 <meta charset="utf-8">
 <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
 <link rel="icon" href="{% static 'main/img/favicon.ico' %}" type="image/x-icon">
@@ -10,7 +10,13 @@
 </head>
 <body>
 {% include 'main/menu.html' %}
-<h1>關於部落格</h1>
-<p>歡迎來到我的部落格,您可盡情瀏覽並留言。</p><br>
+<h2>歡迎來到我的書名</h2>
+<br>
+{% for book in book %}
+  <h3>{{ book.title }}</h3>
+  <div class=bookContent>{{ book.content }}</div>
+  <hr>
+{% endfor %}
+
 </body>
 </html>
